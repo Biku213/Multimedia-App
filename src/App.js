@@ -43,30 +43,7 @@ export default function App() {
       setSelectedFile(null);
     }
   };
-
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-  
-  
-  
-    // Create a unique ID for the file
-    const fileId = Date.now().toString();
-  
-    // Create a new file object with necessary properties
-    const newFile = {
-      id: fileId,
-      name: file.name,
-      type: file.type,
-      size: file.size,
-      path: URL.createObjectURL(file), // Generate a local URL for preview purposes
-      created: file.lastModifiedDate, // Use lastModifiedDate as an example, replace it with the appropriate property
-      author: 'John Doe', // Provide the author name or obtain it from another source
-    };
-  
-    // Update the state to include the uploaded file
-    setMyFiles((prevFiles) => [...prevFiles, newFile]);
-  };
-    const handleShare = (file) => {
+ const handleShare = (file) => {
     const shareText = `Sharing file: ${file.name}\nPath: ${file.path}`;
   
     if (navigator.share) {
@@ -343,15 +320,7 @@ export default function App() {
     </p>
     <p>
       Path: <span style={{ fontStyle: 'italic' }}>{selectedFile.path}</span>
-    </p>
-    <p>
-      Created: <span style={{ fontStyle: 'italic' }}>{selectedFile.created}</span>
-    </p>
-    <p>
-      Author: <span style={{ fontStyle: 'italic' }}>{selectedFile.author}</span>
     </p> 
-    
-    
   </div>
 )}
 
