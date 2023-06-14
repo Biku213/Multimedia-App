@@ -320,7 +320,12 @@ export default function App() {
     </p>
     <p>
       Path: <span style={{ fontStyle: 'italic' }}>{selectedFile.path}</span>
-    </p> 
+    </p>
+    <p>
+      file type: <span style={{ fontStyle: 'italic' }}>{selectedFile.type}</span>
+    </p>
+   
+ 
   </div>
 )}
 
