@@ -15,7 +15,7 @@ Overall, the share feature allows users to share files using the Web Share API o
 
 I chose the search feature because it enhances the usability of the system by providing a quick and convenient way to locate desired files without manually navigating through multiple directories. The search feature in the code allows users to find specific files within the file server. By implementing a search function, users can enter keywords or criteria to search for files based on their names or attributes. Users can save time and effort by simply entering their search terms and obtaining relevant results, improving efficiency and productivity.
 
-## Working Mechanism Of Search Functionality:
+## Working Mechanism Of Search Functionality :
 - The handleSearch function is called when the user types in the search input field.
 - It updates the searchQuery state with the value entered by the user.
 - The useEffect hook is used to perform the search whenever the searchQuery or myFiles state changes.
@@ -24,7 +24,7 @@ I chose the search feature because it enhances the usability of the system by pr
 - The search results are displayed only when there is a search query (searchQuery is not empty) and there are matching files (searchResults is not empty).
 - The search results are rendered as clickable elements, and when a result is clicked, the corresponding file is set as the selectedFile.
 
-
+<br> <br>
 
 2. `Share Feature`
 
@@ -34,7 +34,7 @@ If the Web Share API is not supported, a fallback mechanism is used. It generate
 
 I chose this feature to enable users to easily distribute files to others. By implementing sharing functionality, users can generate shareable links or utilize built-in sharing options to send files to colleagues, friends, or clients. This feature promotes collaboration and facilitates file sharing across different platforms and applications. Instead of relying on traditional methods such as email attachments, users can efficiently share files with others by utilizing the system's sharing capabilities. This simplifies the sharing process and enhances communication and collaboration among users.
 
-## Working Mechanism Of Share Functionality:
+## Working Mechanism Of Share Functionality :
 - The handleShare function is called when the user clicks the "Share" button for a file.
 - It first generates the share text containing the file name and path.
 - It checks if the navigator.share API is supported by the browser. If supported, it uses the API to share the file directly.
