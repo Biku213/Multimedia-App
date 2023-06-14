@@ -8,7 +8,7 @@
 
 ## Elaboration of Search and Share features
 
-1. `Search Feature`:
+1. `Search Feature`
 
 The search feature allows users to search for files based on their names. The search functionality is implemented using the handleSearch function and the searchQuery and searchResults states.The handleSearch function is called whenever the value of the search input field changes. It updates the searchQuery state with the new search query value.
 Overall, the share feature allows users to share files using the Web Share API or a fallback mechanism, while the search feature enables users to search and filter files based on their names in real-time.
@@ -24,7 +24,9 @@ I chose the search feature because it enhances the usability of the system by pr
 - The search results are displayed only when there is a search query (searchQuery is not empty) and there are matching files (searchResults is not empty).
 - The search results are rendered as clickable elements, and when a result is clicked, the corresponding file is set as the selectedFile.
 
-2. `Share Feature`:
+
+
+2. `Share Feature`
 
 The handleShare function is responsible for sharing a selected file. It takes the selected file as a parameter and creates a share text with the file name and path.
 The function checks if the browser supports the Web Share API (navigator.share). If supported, it uses the API to share the file by calling navigator.share with the title, text, and URL parameters. If the sharing is successful, it logs a success message; otherwise, it logs an error message.
