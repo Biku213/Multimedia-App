@@ -241,38 +241,40 @@ export default function App() {
 </button>
 <div style={{ marginLeft: "10px" }}>&nbsp;</div>
 <div className="search-bar">
-        <input
-          type="text"
-          placeholder=" Type here to search your desire file..."
-          value={searchQuery}
-          onChange={handleSearch}
-        />
-      </div> 
+  <input
+    type="text"
+    placeholder="Type here to search your desired file..."
+    value={searchQuery}
+    onChange={handleSearch}
+  />
+</div>
 
-       {/* Display search results only when there is a search query */}
-       {searchQuery && searchResults.length > 0 ? (
-        <div className="search-results">
-          {searchResults.map((file) => (
-            <div
-              key={file.id}
-              onClick={() => {
-                setSelectedFile(file);
-              }}
-              className={
-                selectedFile && selectedFile.id === file.id
-                  ? 'search-result selected'
-                  : 'search-result'
-              }
-            >
-              {file.name}
-            </div>
-          ))}
+{/* Display search results only when there is a search query */}
+{searchQuery && (
+  <div className="search-results">
+    {searchResults.length > 0 ? (
+      searchResults.map((file) => (
+        <div
+          key={file.id}
+          onClick={() => {
+            setSelectedFile(file);
+          }}
+          className={
+            selectedFile && selectedFile.id === file.id
+              ? 'search-result selected'
+              : 'search-result'
+          }
+        >
+          {file.name}
         </div>
-      ) : (
-        <div className="file not found">
-          file not found
-        </div>
-      )}
+      ))
+    ) : (
+      <div className="file-not-found">
+        Searched file not found
+      </div>
+    )}
+  </div>
+)}
 </div>
 </div>
 
