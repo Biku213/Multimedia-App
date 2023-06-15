@@ -268,7 +268,11 @@ export default function App() {
             </div>
           ))}
         </div>
-      ) : null}
+      ) : (
+        <div className="file not found">
+          file not found
+        </div>
+      )}
 </div>
 </div>
 
