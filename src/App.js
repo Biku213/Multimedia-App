@@ -258,6 +258,7 @@ export default function App() {
           key={file.id}
           onClick={() => {
             setSelectedFile(file);
+            setSearchQuery(file.name); // Set the selected file name as the new search query
           }}
           className={
             selectedFile && selectedFile.id === file.id
