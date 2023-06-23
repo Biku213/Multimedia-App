@@ -35,6 +35,8 @@ export default function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [filePath, setFilePath] = useState("/file-server/");
   const [showChartModal, setShowChartModal] = useState(false);
+  const [filterOption, setFilterOption] = useState('all');
+  const [filteredFiles, setFilteredFiles] = useState([]);
 
   const handleDelete = () => {
     if (selectedFile) {
@@ -73,6 +75,7 @@ export default function App() {
     }
   };
   
+  
   useEffect(() => {
     // Add file details and metadata to the existing data array
     const updatedData = data.map((file) => ({
@@ -83,6 +86,19 @@ export default function App() {
 
     setMyFiles(updatedData);
   }, []);
+
+
+  
+useEffect(() => {
+  // Filter the files based on the selected filter option
+  let filteredData = myFiles;
+
+  if (filterOption !== 'all') {
+    filteredData = myFiles.filter(file => file.type === filterOption);
+  }
+
+  setFilteredFiles(filteredData);
+}, [filterOption, myFiles]);
 
   useEffect(() => {
     // Perform the search whenever the search query changes
@@ -239,6 +255,18 @@ export default function App() {
 >
   Delete
 </button>
+ {/* Filter Dropdown */}
+ <select
+            value={filterOption}
+            onChange={(event) => setFilterOption(event.target.value)}
+            style={{ padding: '8px', borderRadius: '2px' }}
+          >
+            <option value="all">All Files</option>
+            <option value="video">Video</option>
+            <option value="audio">Audio</option>
+            <option value="document">Document</option>
+            <option value="image">Image</option>
+          </select>
 <div style={{ marginLeft: "10px" }}>&nbsp;</div>
 <div className="search-bar">
   <input
@@ -281,7 +309,7 @@ export default function App() {
 
 <div style={styles.fileContainer}>
 <div style={{ width: "100%", padding: 10 }}>
-{myFiles.map((file) => {
+{filteredFiles.map((file) => {
   if (file.path.slice(0, filePath.length) === filePath) {
     return (
       <div
