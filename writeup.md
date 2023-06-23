@@ -3,10 +3,9 @@
 ## Added Features
 
 - Search Feature - allows users to search for files based on their names. 
-- Share Feature - responsible for sharing a selected file in different platforms(like Facebook and Twitter, based on the file's path and share text).
+- Filter Feature - enables a more structured and categorized view of files.
 
-
-## Elaboration of Search and Share features
+## Elaboration of Search and Filter features
 
 1. `Search Feature`
 
@@ -17,29 +16,39 @@ I chose the search feature because it enhances the usability of the system by pr
 
 ## Working Mechanism Of Search Functionality :
 - The handleSearch function is called when the user types in the search input field.
+
 - It updates the searchQuery state with the value entered by the user.
+
 - The useEffect hook is used to perform the search whenever the searchQuery or myFiles state changes.
+
 - In the useEffect hook, the myFiles array is filtered based on the file name matching the search query (case-insensitive).
+
 - The filtered results are stored in the searchResults state.
+
 - The search results are displayed only when there is a search query (searchQuery is not empty) and there are matching files (searchResults is not empty).
+
 - The search results are rendered as clickable elements, and when a result is clicked, the corresponding file is set as the selectedFile.
 
 <br> <br>
 
-2. `Share Feature`
+2. `Filter Feature`
 
-The handleShare function is responsible for sharing a selected file. It takes the selected file as a parameter and creates a share text with the file name and path.
-The function checks if the browser supports the Web Share API (navigator.share). If supported, it uses the API to share the file by calling navigator.share with the title, text, and URL parameters. If the sharing is successful, it logs a success message; otherwise, it logs an error message.
-If the Web Share API is not supported, a fallback mechanism is used. It generates share URLs for different platforms like Facebook and Twitter, based on the file's path and share text. It then opens a new window for each platform using window.open to initiate sharing.
+The filter functionality allows users to filter files based on their types, such as video, audio, document, or image. The filter is implemented using a dropdown select element that provides options for different file types.
 
-I chose this feature to enable users to easily distribute files to others. By implementing sharing functionality, users can generate shareable links or utilize built-in sharing options to send files to colleagues, friends, or clients. This feature promotes collaboration and facilitates file sharing across different platforms and applications. Instead of relying on traditional methods such as email attachments, users can efficiently share files with others by utilizing the system's sharing capabilities. This simplifies the sharing process and enhances communication and collaboration among users.
+I chose this feature beacause it enables a more structured and categorized view of files. This improves the overall organization and accessibility of files, making it easier for users to locate and manage specific files. By implementing filter functionality, the code allows users to filter their files based on different types, enhancing the organization and accessibility of files. When a user selects a specific file type from the dropdown select element, the code filters the displayed files accordingly, showing only the files that match the selected type.
 
-## Working Mechanism Of Share Functionality :
-- The handleShare function is called when the user clicks the "Share" button for a file.
-- It first generates the share text containing the file name and path.
-- It checks if the navigator.share API is supported by the browser. If supported, it uses the API to share the file directly.
-- If the navigator.share API is not supported, it falls back to using specific share URLs for different platforms (e.g., Facebook, Twitter).
-- It opens a new window for each platform with the corresponding share URL, allowing the user to manually share the file.
+## Working Mechanism Of Filter Functionality :
+- The filter option is stored in the filterOption state using the useState hook. It is initialized with the value 'all' by default, which indicates that all files should be displayed.
+
+- The filterOption state is used as a dependency in the useEffect hook to trigger filtering whenever the filter option changes.
+
+- Inside the useEffect hook, the myFiles state is filtered based on the selected filter option. If the filter option is not 'all', the files are filtered using the filter method based on the type property of each file. The filtered files are stored in the filteredFiles state.
+
+- The filteredFiles state is then used to render the list of files in the file container. The map method is used to iterate over the filteredFiles array and display each file as a separate component.
+
+- The filter option is controlled using a <select> element in the UI. The value attribute of the <select> element is bound to the filterOption state, and the onChange event is used to update the filterOption state whenever the user selects a different filter option.
+
+- When the user selects a filter option, the filterOption state is updated, which triggers the useEffect hook to filter the files based on the selected option. The filtered files are then displayed in the file container.
 
 ## Conclusion
-In conclusion, the search and share features enhance the Multimedia App by enabling users to quickly find files based on their search criteria and easily share files with others through different platforms. These features contribute to improved usability, efficiency, and collaboration within the file management system of Multimedia App.
+In conclusion, the search and filter features enhance the Multimedia App by enabling users to quickly find files based on their search criteria and easily filter files based on their types, such as video, audio, document, or image. These features contribute to improved usability, efficiency, and collaboration within the file management system of Multimedia App.
