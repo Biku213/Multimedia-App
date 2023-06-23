@@ -10,7 +10,6 @@
 1. `Search Feature`
 
 The search feature allows users to search for files based on their names. The search functionality is implemented using the handleSearch function and the searchQuery and searchResults states.The handleSearch function is called whenever the value of the search input field changes. It updates the searchQuery state with the new search query value.
-Overall, the share feature allows users to share files using the Web Share API or a fallback mechanism, while the search feature enables users to search and filter files based on their names in real-time.
 
 I chose the search feature because it enhances the usability of the system by providing a quick and convenient way to locate desired files without manually navigating through multiple directories. The search feature in the code allows users to find specific files within the file server. By implementing a search function, users can enter keywords or criteria to search for files based on their names or attributes. Users can save time and effort by simply entering their search terms and obtaining relevant results, improving efficiency and productivity.
 
@@ -35,7 +34,7 @@ I chose the search feature because it enhances the usability of the system by pr
 
 The filter functionality allows users to filter files based on their types, such as video, audio, document, or image. The filter is implemented using a dropdown select element that provides options for different file types.
 
-I chose this feature beacause it enables a more structured and categorized view of files. This improves the overall organization and accessibility of files, making it easier for users to locate and manage specific files. By implementing filter functionality, the code allows users to filter their files based on different types, enhancing the organization and accessibility of files. When a user selects a specific file type from the dropdown select element, the code filters the displayed files accordingly, showing only the files that match the selected type.
+I chose the filter feature beacause it enables a more structured and categorized view of files. This improves the overall organization and accessibility of files, making it easier for users to locate and manage specific files. By implementing filter functionality, the code allows users to filter their files based on different types, enhancing the organization and accessibility of files. When a user selects a specific file type from the dropdown select element, the code filters the displayed files accordingly, showing only the files that match the selected type.
 
 ## Working Mechanism Of Filter Functionality :
 - The filter option is stored in the filterOption state using the useState hook. It is initialized with the value 'all' by default, which indicates that all files should be displayed.

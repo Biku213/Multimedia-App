@@ -23,7 +23,7 @@
   align-items: center;
   width: 300px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 2px;
   overflow: hidden;
   background-color: #f0f0f0;
@@ -52,7 +52,7 @@
 }
 
 .search-result.selected {
- background-color: rgb(199, 245, 125);
+ background-color: #76e9ef;
  border-radius: 4px;
   
 }
